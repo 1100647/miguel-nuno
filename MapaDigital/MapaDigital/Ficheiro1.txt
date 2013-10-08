@@ -1,0 +1,5 @@
+Serralves,9000
+Museu da Cera,120,570,1110 
+Igreja S.Francisco,5500
+Torre dos Clérigos,2300
+Caves Vinho do Porto,20,540,870
