@@ -33,7 +33,7 @@ class EstradasNacionais : public ViasLigacao
 		bool operator <(const EstradasNacionais &en);
 		bool operator ==(const EstradasNacionais &en);
 		void escreve(ostream &out);
-		EstradasNacionais &operator = (const EstradasNacionais &nac);
+		EstradasNacionais &operator = (const EstradasNacionais &en);
 
 };
 
@@ -43,7 +43,7 @@ EstradasNacionais::EstradasNacionais()
 	tipoPavimento = "não definido";
 }
 
-EstradasNacionais::EstradasNacionais(string cod,double totalVia,double tMedio,string tipoPav):ViasLigacao(cod,totalVia,tMedio)
+EstradasNacionais::EstradasNacionais(string cod,double totalVia,double tMedio,string tipoPav) : ViasLigacao(cod,totalVia,tMedio)
 {
 	tipoPavimento = tipoPav;
 }

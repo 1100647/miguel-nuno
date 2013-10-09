@@ -16,7 +16,7 @@ using namespace std;
 class ViasLigacao
 {
 	private:
-		ViasLigacao ** vec;
+		ViasLigacao * vec;
 		string codigo; //código da via
 		double totalKilometrosVia; //total de KM's da Via
 		double tempMedioPercurso;//tempo médio do percurso em minutos entre um local origem e um local destino

@@ -1,12 +1,6 @@
 #ifndef AutoEstradas_
 #define AutoEstradas_
 
-#include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string>
-#include <string.h>
-#include "ViasLigacao.h"
 
 using namespace std;
 
@@ -17,7 +11,7 @@ class AutoEstradas : public ViasLigacao
 	public:
 		AutoEstradas();
 		AutoEstradas(const AutoEstradas &ae);
-		AutoEstradas(string cod,double totalVia,double tMedio,double preco);
+		AutoEstradas(string cod,double totalVia,double tempMedio,double preco);
 		~AutoEstradas();
 
 		//SET's e GET's
@@ -31,7 +25,7 @@ class AutoEstradas : public ViasLigacao
 		bool operator <(const AutoEstradas &ae);
 		bool operator ==(const AutoEstradas &ae);
 		void escreve(ostream &out) const;
-		AutoEstradas &operator = (const AutoEstradas &aut);
+		AutoEstradas &operator = (const AutoEstradas &ae);
 
 };
 
@@ -40,7 +34,7 @@ AutoEstradas::AutoEstradas()
 	precoPortagem = 0;
 }
 
-AutoEstradas::AutoEstradas(string cod,double totalVia,double tMedio,double preco):ViasLigacao(cod,totalVia,tMedio)
+AutoEstradas::AutoEstradas(string cod,double totalVia,double tMedio,double preco) : ViasLigacao(cod,totalVia,tMedio)
 {
 	precoPortagem = preco;
 }
