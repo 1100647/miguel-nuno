@@ -116,7 +116,7 @@ void Ficheiro::FicheiroLocais()
 		n=0;	
 	}	
 
-	ler2.close();;
+	ler2.close();
 }*/
 
 
