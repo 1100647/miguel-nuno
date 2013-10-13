@@ -164,3 +164,25 @@ int lerFicheiroLocais(Locais *loc)
 	return 0;
 }
  */
+
+	
+	// #include <fstream>
+// #include <iostream>
+ 
+ //using namespace std;
+ 
+ //int main ()
+ //{
+//   ifstream arq;                        //crio objeto "arq" da classe ifstream - leitura
+  // arq.open("joao.doc");                //chamo função membro open
+ 
+  //  cout << "(arq) = " << arq << endl;  //imprime o objeto      
+   // cout << "(arq.fail()) = " << arq.fail() << endl;    //chamo função membro fail
+ 
+//#ifdef WIN32
+ //  system ("pause");
+//#endif
+ 
+   //return 0;
+ //}
+
