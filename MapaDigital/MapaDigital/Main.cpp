@@ -163,26 +163,23 @@ int lerFicheiroLocais(Locais *loc)
 	origem.close();
 	return 0;
 }
+
+#include<fstream.h>
+#include<iostream.h>
+#include <stdlib.h>
+void main()
+{ char ch;
+ifstream f1("file.in");
+if (!f1){ // Teste ao estado da fstream input
+cout << “Erro a abrir ficheiro de leitura." << endl;
+exit(0);
+}
+ofstream f2("file.out");
+if (!f2) { // Teste ao estado da fstream de output 
+cout << “Erro a abrir ficheiro de escrita." << endl;
+exit(0);
+}
+while ( f1.get(ch) ) f2.put(ch);
+f1.close();
+f2.close(); cin.get();
  */
-
-	
-	// #include <fstream>
-// #include <iostream>
- 
- //using namespace std;
- 
- //int main ()
- //{
-//   ifstream arq;                        //crio objeto "arq" da classe ifstream - leitura
-  // arq.open("joao.doc");                //chamo função membro open
- 
-  //  cout << "(arq) = " << arq << endl;  //imprime o objeto      
-   // cout << "(arq.fail()) = " << arq.fail() << endl;    //chamo função membro fail
- 
-//#ifdef WIN32
- //  system ("pause");
-//#endif
- 
-   //return 0;
- //}
-
