@@ -9,78 +9,32 @@
 
 using namespace std;
 
-#include "LocaisHistoricosCulturais.h"
-#include "LocaisNaturais.h"
-
 class Locais
 {
 	private:
-		string desc;
-		int actual;
-		Locais **vec;
+		string desc1;
+		string desc2;
+
 	public:
 		Locais();
-		Locais(const Locais & loc);
-		Locais(string desc);
-		~Locais();
+		Locais(const Locais &loc);
+		Locais(string desc1);
+		Locais(string desc1,string desc2);
+		virtual Locais * clone() const;	
+		virtual ~Locais();
 
 		//set's e get´s
-		void setDescricao(string d);
-		string getDescricao()const;
-
-		//metodos da classe
-		virtual void contarLocais()const;
-		
-
+		void setDescricao1(string d1);
+		void setDescricao2(string d2);
+		string getDescricao1()const;
+		string getDescricao2()const;
 
 		/*Sobrecarga de operadores
 		Locais & operator =(const Locais &loc);
 		bool operator >(const Locais &loc);
 		bool operator <(const Locais &loc);
 		bool operator ==(const Locais &loc);*/
+		virtual void escrever (ostream & out) const;
+		virtual void escrever2 (ostream & out) const;
 };
-
-Locais::Locais()
-{
-	desc = "nenhuma";
-}
-
-Locais::Locais(const Locais &loc)
-{
-	setDescricao(loc.desc);
-}
-
-
-Locais::Locais(string d)
-{
-	desc = d;
-}
-
-Locais::~Locais(){}
-
-
-
-
-
-void Locais::contarLocais() const
-{
-	int historicos = 0;
-	int naturais = 0;
-
-	for (int i=0; i<actual; i++)
-	{
-		if (typeid(*vec[i]) == typeid(LocaisNaturais)) historicos++;
-		if (typeid(*vec[i]) == typeid(LocaisHistoricosCulturais)) naturais++;
-	}
-	cout << "Total de Locais" << endl;
-	cout << "::::::::::Locais Naturais: " << historicos << " vias." << endl;
-	cout << "::::::::::Locais Historicos Naturais: " << naturais << " vias." << endl;
-}
-
-
-
-
-
-
-
 #endif

@@ -6,24 +6,22 @@
 #include <stdio.h>
 #include <string>
 #include <string.h>
+
 #include "Locais.h"
-
-using namespace std;
-
 
 
 class LocaisHistoricosCulturais : public Locais
 {
 	private:
-		int tempoVisita;//tempo medio de visita em minutos
-		int horarioAbertura;//em minutos
-		int horarioEncerramento;//em minutos
-	
+		int tempoVisita;
+		int horarioAbertura;
+		int horarioEncerramento;
 	public:
 		LocaisHistoricosCulturais();
 		LocaisHistoricosCulturais(const LocaisHistoricosCulturais &locHist);
 		LocaisHistoricosCulturais(string desc,int tempoVisita,int horarioAbertura,int horarioEncerramento);
 		~LocaisHistoricosCulturais();
+		LocaisHistoricosCulturais * clone() const;
 
 		//SET's e GET's
 		void setTempoVisita(int tVisita);
@@ -34,49 +32,6 @@ class LocaisHistoricosCulturais : public Locais
 		int getHorarioAbertura()const;
 		int getHorarioEncerramento()const;
 
-		
+		void escrever(ostream & out) const;	
 };
-
-LocaisHistoricosCulturais::LocaisHistoricosCulturais()
-{
-	tempoVisita = 0;
-	horarioAbertura = 0;
-	horarioEncerramento = 0;
-}
-
-
-LocaisHistoricosCulturais::LocaisHistoricosCulturais(string desc,int tVisita,int abertura,int encerramento) : Locais(desc)//desc=descrição - variavel da superclasse Locais
-{
-	tempoVisita = tVisita;
-	horarioAbertura = abertura;
-	horarioEncerramento = encerramento;
-}
-
-
-
-LocaisHistoricosCulturais::LocaisHistoricosCulturais(const LocaisHistoricosCulturais &locHist)
-{
-	setTempoVisita(locHist.tempoVisita);
-	setHorarioAbertura(locHist.horarioAbertura);
-	setHorarioEncerramento(locHist.horarioEncerramento);
-}
-
-
-void LocaisHistoricosCulturais::setTempoVisita(int tVisita)
-{
-	tempoVisita = tVisita;
-}
-						
-
-void LocaisHistoricosCulturais::setHorarioAbertura(int abertura)
-{
-	horarioAbertura = abertura;
-}
-
-void LocaisHistoricosCulturais::setHorarioEncerramento(int encerramento)
-{
-	horarioEncerramento = encerramento;
-}
-
-
 #endif
