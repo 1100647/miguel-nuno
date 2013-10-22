@@ -39,5 +39,5 @@ void AutoEstradas::escrever(ostream &out)const
 {
 	cout << "TIPO DE VIA: " << "Auto Estrada" << endl;
 	ViasLigacao::escrever(cout);
-	cout << "PRECO DA PORTAGEM: " << precoPortagem << endl << endl;
+	cout << "PRECO DA PORTAGEM: " << "EUR" << precoPortagem << endl << endl;
 }
