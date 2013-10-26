@@ -1,16 +1,9 @@
-#ifndef Ficheiro_
-#define Ficheiro_
-
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
 #include <string.h>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
+#include <fstream>
 
 #include "Ficheiro.h"
 #include "Locais.h"
@@ -20,38 +13,7 @@
 #include "AutoEstradas.h"
 #include "EstradasNacionais.h"
 
-using namespace std;
-
-class Ficheiro
-<<<<<<< HEAD
-{
-	private:
-		int actual1,actual2;
-		int tamanho1,tamanho2;
-		Locais **vecLocais;
-		ViasLigacao **vecVias;
-	public:
-		Ficheiro();
-		Ficheiro(int t);
-		Ficheiro(const Ficheiro &f);
-		~Ficheiro();
-
-		void lerFicheiroLocais();
-		void inserirLocais(Locais *loc);
-		void contarTiposLocal();
-		void ordenar();
-
-		void lerFicheiroVias();
-		void inserirVias(ViasLigacao *vias);
-		bool verificarOrigem(string origem);
-		bool verificarDestino(string destino);
-
-		void escreverLocais(ostream& ostr) const;
-		void escreverVias(ostream& ostr) const;
-};
-
-
-Ficheiro::Ficheiro(int t) //Construtor Ficheiro
+Ficheiro::Ficheiro(int t)
 {
 	actual1 = 0;
 	actual2 = 0;
@@ -71,7 +33,7 @@ Ficheiro::Ficheiro(const Ficheiro &f)
 
 Ficheiro::~Ficheiro()
 {
-	for (int i=0; i<actual1; i++)  
+	for (int i=0; i<actual1; i++)
 		delete vecLocais[i];
 	delete [] vecLocais;
 	
@@ -80,15 +42,24 @@ Ficheiro::~Ficheiro()
 	delete [] vecVias;
 }
 
-void Ficheiro::lerFicheiroLocais()  // ler ficheiro se encontrar
+void Ficheiro::lerFicheiroLocais()
 {
 	ifstream file;
+	
 	file.open("Ficheiro1.txt");
 	if (!file)
 	{
 		cerr << "Erro a abrir ficheiro dos locais!" << endl;
 	}
 
+	double minutos1;
+	double minutos2;
+	int horas1;
+	int horas2;
+	string time1;
+	string time2;
+	int timex1;
+	int timex2;
 	string linha;
 	char *aux;
 	string aux1;
@@ -127,6 +98,10 @@ void Ficheiro::lerFicheiroLocais()  // ler ficheiro se encontrar
 					aux1 = linha.substr(inic,pos-inic);
 					aux = &aux1[0];
 					v3=atoi(aux);
+					horas1 = v3/60;
+					minutos1 = v3%60;
+					timex1 = horas1 * 100 + minutos1;
+					double eee = horas1 * 0.1 + minutos1;
 					pos++;
 
 					//hora de encerramento
@@ -135,14 +110,18 @@ void Ficheiro::lerFicheiroLocais()  // ler ficheiro se encontrar
 					aux1 = linha.substr(inic,pos-inic);
 					aux = &aux1[0];
 					v4=atoi(aux);
+					horas2 = v4 / 60;
+					minutos2 = v4 % 60;
+					time2 = horas2 * 100 , ":" ,minutos2 , "h";
+					timex2 = atoi(time2.c_str());
 					if (v3 == 0 ) 
 					{
-						LocaisNaturais locNat(v1,v2);
-						inserirLocais(&locNat);
+							LocaisNaturais locNat(v1,v2);
+							inserirLocais(&locNat);
 					}
 					else
 					{
-						LocaisHistoricosCulturais locHist(v1,v2,v3,v4);
+						LocaisHistoricosCulturais locHist(v1,v2,eee,timex2);
 						inserirLocais(&locHist);
 					}
 
@@ -166,26 +145,8 @@ void Ficheiro::inserirLocais(Locais *loc)
 	vecLocais[actual1] = loc->clone();
 	actual1++;
 }
-=======
-{
-	private:
-		int actual1,actual2;
-		int tamanho1,tamanho2;
-		Locais **vecLocais;
-		ViasLigacao **vecVias;
-	public:
-		Ficheiro();
-		Ficheiro(int t);
-		Ficheiro(const Ficheiro &f);
-		~Ficheiro();
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 
-		void lerFicheiroLocais();
-		void inserirLocais(Locais *loc);
-		void contarTiposLocal();
-		void ordenar();
 
-<<<<<<< HEAD
 void Ficheiro::lerFicheiroVias()
 {
 	ifstream file;
@@ -200,8 +161,7 @@ void Ficheiro::lerFicheiroVias()
 	char *aux;
 	string aux1;
 	string origem,destino,codigo,pavimento;
-	int totalKilom,tempMedio;
-	double portagem;
+	int totalKilom,tempMedio,portagem;
 
 	/*		ORIGEM	DESTINO		CODIGO DA VIA		TOTALQUILOMETROS		TEMPOMEDIO		PAVIMENTO / PRECO PORTAGEM     */
 	/*		string	string		string				int						int				string	  / int					*/
@@ -243,7 +203,7 @@ void Ficheiro::lerFicheiroVias()
 					pos=linha.find(',', inic);
 					aux1 = linha.substr(inic,pos-inic);
 					aux = &aux1[0];
-					totalKilom = atoi(aux);
+					totalKilom = atof(aux);
 					pos++;
 
 					//tempo medio do percurso
@@ -251,7 +211,7 @@ void Ficheiro::lerFicheiroVias()
 					pos=linha.find(',', inic);
 					aux1 = linha.substr(inic,pos-inic);
 					aux = &aux1[0];
-					tempMedio = atoi(aux);
+					tempMedio = atof(aux);
 					pos++;
 
 					//tipo de pavimento OU preço da portagem
@@ -261,47 +221,27 @@ void Ficheiro::lerFicheiroVias()
 					aux1 = linha.substr(inic,pos-inic);
 					aux = &aux1[0];
 					
-					if(verificarOrigem(origem)==true && verificarDestino(destino)==true)
+
+					if(codigo[0] == 'E')
 					{
-						if(codigo[0] == 'E')
-						{
-							pavimento = aux;
-							EstradasNacionais en(origem,destino,codigo,totalKilom,tempMedio,pavimento);
-							inserirVias(&en);
-						}
-						else
-						{
-							portagem = atof(aux);
-							AutoEstradas ae(origem,destino,codigo,totalKilom,tempMedio,portagem);
-							inserirVias(&ae);
-						}
+						pavimento = aux;
+						EstradasNacionais en(origem,destino,codigo,totalKilom,tempMedio,pavimento);
+						inserirVias(&en);
 					}
+					else
+					{
+						portagem = atof(aux);
+						AutoEstradas ae(origem,destino,codigo,totalKilom,tempMedio,portagem);
+						inserirVias(&ae);
+					}
+
 				}
+				
 		}
 		file.close();
 }
 
 
-
-//Verifica Origem
-
-bool Ficheiro::verificarOrigem(string origem)
-{
-	for(int i=0 ; i<actual1 ; i++)
-		if(origem == vecLocais[i]->getDescricao1())
-			return true;
-	
-}
-
-//Verifica destino
-bool Ficheiro::verificarDestino(string destino)
-{
-	for(int i=0 ; i<actual1 ; i++)
-		if(destino == vecLocais[i]->getDescricao1())
-			return true;
-}
-
-//Insere vias
 void Ficheiro::inserirVias(ViasLigacao *vias)
 {
 	if (actual2 == tamanho2)
@@ -319,7 +259,7 @@ void Ficheiro::inserirVias(ViasLigacao *vias)
 }
 
 
-//Ordena vias
+
 void Ficheiro::ordenar()
 {
 	Locais *temp;
@@ -338,7 +278,7 @@ void Ficheiro::ordenar()
 	}
 }
  
-//Conta os tipos de local
+
 void Ficheiro::contarTiposLocal()
 {			
 	int chc = 0;
@@ -397,20 +337,3 @@ void Ficheiro::escreverVias(ostream & out) const
 	}
 }
 
-
-
-#endif
-
-
-
-
-=======
-		void lerFicheiroVias();
-		void inserirVias(ViasLigacao *vias);
-
-		void escreverLocais(ostream& ostr) const;
-		void escreverVias(ostream& ostr) const;
-};
-
-#endif
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e

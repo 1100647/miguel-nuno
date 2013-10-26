@@ -32,6 +32,7 @@ class LocaisHistoricosCulturais : public Locais //Classe LocaisHistoricos
 		int getHorarioAbertura()const;
 		int getHorarioEncerramento()const;
 
+<<<<<<< HEAD
 		void mostrarHora(int t,string tipo) const;
 		void escrever(ostream & out) const;	
 };
@@ -140,4 +141,8 @@ void LocaisHistoricosCulturais::escrever(ostream & out) const //Escreve Tipo, te
 }
 
 
+=======
+		void escrever(ostream & out) const;	
+};
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

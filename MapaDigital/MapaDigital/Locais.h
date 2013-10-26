@@ -34,6 +34,7 @@ class Locais
 		bool operator >(const Locais &loc);
 		bool operator <(const Locais &loc);
 		bool operator ==(const Locais &loc);*/
+<<<<<<< HEAD
 		
 		virtual void escrever (ostream & out) const;
 		virtual void escrever2 (ostream & out) const;
@@ -112,4 +113,9 @@ void Locais::escrever2(ostream & out) const
 
 
 
+=======
+		virtual void escrever (ostream & out) const;
+		virtual void escrever2 (ostream & out) const;
+};
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

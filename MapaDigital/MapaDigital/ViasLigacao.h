@@ -41,6 +41,7 @@ class ViasLigacao : public Locais
 		bool operator <(const ViasLigacao &vias);
 		bool operator ==(const ViasLigacao &vias);
 };
+<<<<<<< HEAD
 
 ViasLigacao::ViasLigacao()
 {
@@ -156,4 +157,6 @@ void ViasLigacao::escrever(ostream & out) const //Escreve Codigo da via, Quilome
 
 
 
+=======
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

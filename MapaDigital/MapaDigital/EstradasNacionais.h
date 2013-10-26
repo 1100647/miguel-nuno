@@ -33,6 +33,7 @@ class EstradasNacionais : public ViasLigacao
 		
 
 };
+<<<<<<< HEAD
 
 
 EstradasNacionais::EstradasNacionais() //Construtor vazio
@@ -78,4 +79,6 @@ void EstradasNacionais::escrever(ostream &out)const  //escreve Tipo de via e Tip
 
 
 
+=======
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

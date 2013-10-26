@@ -76,7 +76,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="Teste.cpp" />
+=======
+    <ClCompile Include="AutoEstradas.cpp" />
+    <ClCompile Include="EstradasNacionais.cpp" />
+    <ClCompile Include="Ficheiro.cpp" />
+    <ClCompile Include="Locais.cpp" />
+    <ClCompile Include="LocaisHistoricosCulturais.cpp" />
+    <ClCompile Include="LocaisNaturais.cpp" />
+    <ClCompile Include="Teste.cpp" />
+    <ClCompile Include="ViasLigacao.cpp" />
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoEstradas.h" />

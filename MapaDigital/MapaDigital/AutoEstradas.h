@@ -34,6 +34,7 @@ class AutoEstradas : public ViasLigacao //classe AutoEstradas
 		
 
 };
+<<<<<<< HEAD
 
 
 AutoEstradas::AutoEstradas() //AutoEstrada sem portagem
@@ -78,4 +79,6 @@ void AutoEstradas::escrever(ostream &out)const  //Escrevetipo de via e Preço por
 
 
 
+=======
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

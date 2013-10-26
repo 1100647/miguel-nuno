@@ -20,14 +20,21 @@ int main()
 {
 	cout << "_____________________________________________________" << endl;
 	cout << "...............M A P A   D I G I T A L..............." << endl;
+<<<<<<< HEAD
 	cout << "_____________________________________________________" << endl; //Titulo
+=======
+	cout << "_____________________________________________________" << endl;
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 
 
 	char sel;
 	Ficheiro f1(100);
 	Ficheiro f2(100);
 	
+<<<<<<< HEAD
 	//Lê ficheiros
+=======
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 	f1.lerFicheiroLocais();
 	f2.lerFicheiroVias();
 	
@@ -40,7 +47,11 @@ int main()
 	cin >> sel;
 	cout << endl; 
 
+<<<<<<< HEAD
     switch(sel)  //Menu
+=======
+    switch(sel)
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 	{
         case '1':
 			f1.escreverLocais(cout);

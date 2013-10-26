@@ -34,6 +34,7 @@ class LocaisNaturais : public Locais
 
 
 };
+<<<<<<< HEAD
 
 
 LocaisNaturais::LocaisNaturais()
@@ -84,4 +85,6 @@ void LocaisNaturais::escrever(ostream & out) const //Escreve tipo de local e are
 
 
 
+=======
+>>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif
