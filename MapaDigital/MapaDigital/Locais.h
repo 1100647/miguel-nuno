@@ -9,75 +9,104 @@
 
 using namespace std;
 
-#include "LocaisHistoricosCulturais.h"
-#include "LocaisNaturais.h"
-
 class Locais
 {
 	private:
-		string desc;
-		int actual;
-		Locais **vec;
+		string desc1;
+		string desc2;
+
 	public:
 		Locais();
-		Locais(const Locais & loc);
-		Locais(string desc);
-		~Locais();
+		Locais(const Locais &loc);
+		Locais(string desc1);
+		Locais(string desc1,string desc2);
+		virtual Locais * clone() const;	
+		virtual ~Locais();
 
 		//set's e get´s
-		void setDescricao(string d);
-		string getDescricao()const;
-
-		//metodos da classe
-		virtual void contarLocais()const;
-		
-
+		void setDescricao1(string d1);
+		void setDescricao2(string d2);
+		string getDescricao1()const;
+		string getDescricao2()const;
 
 		/*Sobrecarga de operadores
 		Locais & operator =(const Locais &loc);
 		bool operator >(const Locais &loc);
 		bool operator <(const Locais &loc);
 		bool operator ==(const Locais &loc);*/
+		
+		virtual void escrever (ostream & out) const;
+		virtual void escrever2 (ostream & out) const;
 };
+
 
 Locais::Locais()
 {
-	desc = "nenhuma";
+	desc1 = "vazio";
+	desc2 = "vazio";
 }
+
+Locais::Locais(string d1)
+{
+	desc1 = d1;
+}
+
+
+Locais::Locais(string d1,string d2)
+{
+	desc1 = d1;
+	desc2 = d2;
+}
+
 
 Locais::Locais(const Locais &loc)
 {
-	setDescricao(loc.desc);
+	setDescricao1(loc.desc1);
+	setDescricao2(loc.desc2);
 }
 
 
-Locais::Locais(string d)
+Locais::~Locais()
 {
-	desc = d;
 }
 
-Locais::~Locais(){}
-
-
-
-
-
-void Locais::contarLocais() const
+Locais * Locais::clone() const
 {
-	int historicos = 0;
-	int naturais = 0;
+	return new Locais (*this);
+}
 
-	for (int i=0; i<actual; i++)
-	{
-		if (typeid(*vec[i]) == typeid(LocaisNaturais)) historicos++;
-		if (typeid(*vec[i]) == typeid(LocaisHistoricosCulturais)) naturais++;
-	}
-	cout << "Total de Locais" << endl;
-	cout << "::::::::::Locais Naturais: " << historicos << " vias." << endl;
-	cout << "::::::::::Locais Historicos Naturais: " << naturais << " vias." << endl;
+void Locais::setDescricao1(const string d1)
+{
+	desc1 = d1;
 }
 
 
+void Locais::setDescricao2(const string d2)
+{
+	desc2 = d2;
+}
+
+
+string Locais::getDescricao1()const
+{
+	return desc1;
+}
+
+string Locais::getDescricao2()const
+{
+	return desc2;
+}
+
+void Locais::escrever(ostream & out) const
+{  
+	cout << "DESCRICAO: " << desc1 << endl;
+}
+
+void Locais::escrever2(ostream & out) const
+{  
+	cout << "ORIGEM: " << desc1 << endl;
+	cout << "DESTINO: " << desc2 << endl;
+}
 
 
 

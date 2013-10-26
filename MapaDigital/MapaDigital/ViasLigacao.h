@@ -7,42 +7,33 @@
 #include <string>
 #include <string.h>
 
+#include "Locais.h"
+
 using namespace std;
 
-#include "AutoEstradas.h"
-#include "EstradasNacionais.h"
-
-
-class ViasLigacao
+class ViasLigacao : public Locais
 {
 	private:
-		ViasLigacao * vec;
 		string codigo; //código da via
-		double totalKilometrosVia; //total de KM's da Via
-		double tempMedioPercurso;//tempo médio do percurso em minutos entre um local origem e um local destino
-		int actual;
-		int tamanho;
-	
+		int totalKilometrosVia; //total de KM's da Via
+		int tempMedioPercurso;//tempo médio do percurso em minutos entre um local origem e um local destino	
 	public:
 		ViasLigacao();
 		ViasLigacao(const ViasLigacao &vias);
-		ViasLigacao(string cod,double totalVia,double tempMedio);
+		ViasLigacao(string orig,string dest,string cod,int totalVia,int tempMedio);
+		virtual ViasLigacao * clone() const;
 		virtual ~ViasLigacao();
 
 		//SET's e GET's
 		void setCodigoVia(string cod);
-		void setTotalKilometrosVia(double totalVia);
-		void setTempoMedioPercurso(double tempMedio);
+		void setTotalKilometrosVia(int totalVia);
+		void setTempoMedioPercurso(int tempMedio);
 		
 		string getCodigoVia()const;
-		double getTotalKilometrosVia()const;
-		double getTempoMedioPercurso()const;
+		int getTotalKilometrosVia()const;
+		int getTempoMedioPercurso()const;
 
-		//Métodos da classe
-		virtual void inserirViaLigacao(ViasLigacao * v);
-		virtual void contarVias() const;
-		virtual void escreve(ostream & out);
-		virtual ViasLigacao * clone() const=0;
+		virtual void escrever (ostream & out) const;
 
 		//Sobrecarga de operadores
 		ViasLigacao & operator =(const ViasLigacao &vias);
@@ -51,15 +42,14 @@ class ViasLigacao
 		bool operator ==(const ViasLigacao &vias);
 };
 
-ViasLigacao::ViasLigacao(){
-		codigo = "";
+ViasLigacao::ViasLigacao()
+{
+		codigo = "vazio";
 		totalKilometrosVia = 0;
 		tempMedioPercurso = 0;
-		actual = 0;
-		tamanho = 0;
 }
 
-ViasLigacao::ViasLigacao(string cod,double totalVia,double tempMedio)
+ViasLigacao::ViasLigacao(string orig,string dest,string cod,int totalVia,int tempMedio) : Locais(orig,dest) //herança
 {
 	codigo = cod;
 	totalKilometrosVia = totalVia;
@@ -67,7 +57,7 @@ ViasLigacao::ViasLigacao(string cod,double totalVia,double tempMedio)
 }
 
 
-ViasLigacao::ViasLigacao(const ViasLigacao &vias)
+ViasLigacao::ViasLigacao(const ViasLigacao &vias) : Locais(vias)
 {
 	setCodigoVia(vias.codigo);
 	setTotalKilometrosVia(vias.totalKilometrosVia);
@@ -75,7 +65,18 @@ ViasLigacao::ViasLigacao(const ViasLigacao &vias)
 }
 
 
-ViasLigacao::~ViasLigacao(){}
+ViasLigacao::~ViasLigacao()
+{
+
+}
+
+
+ViasLigacao * ViasLigacao::clone() const
+{
+	return new ViasLigacao(*this);
+}
+
+
 
 
 void ViasLigacao::setCodigoVia(string cod)
@@ -83,15 +84,18 @@ void ViasLigacao::setCodigoVia(string cod)
 	codigo = cod;
 }
 
-void ViasLigacao::setTotalKilometrosVia(double totalVia)
+void ViasLigacao::setTotalKilometrosVia(int totalVia)
 {
 	totalKilometrosVia = totalVia;
 }
 
-void ViasLigacao::setTempoMedioPercurso(double tempMedio)
+
+void ViasLigacao::setTempoMedioPercurso(int tempMedio)
 {
 	tempMedioPercurso = tempMedio;
 }
+
+
 
 
 string ViasLigacao::getCodigoVia() const
@@ -99,12 +103,12 @@ string ViasLigacao::getCodigoVia() const
 	return codigo;
 }
 
-double ViasLigacao::getTotalKilometrosVia() const
+int ViasLigacao::getTotalKilometrosVia() const
 {
 	return totalKilometrosVia;
 }
 
-double ViasLigacao::getTempoMedioPercurso() const
+int ViasLigacao::getTempoMedioPercurso() const
 {
 	return tempMedioPercurso;
 }
@@ -113,82 +117,43 @@ double ViasLigacao::getTempoMedioPercurso() const
 
 
 
-ViasLigacao & ViasLigacao::operator=(const ViasLigacao &vias)
+ViasLigacao & ViasLigacao::operator=(const ViasLigacao &vias) 
 {
-	this->codigo = vias.codigo;
-	this->totalKilometrosVia = vias.totalKilometrosVia;
-	this->tempMedioPercurso = vias.tempMedioPercurso;
+	if(this != &vias){
+		codigo = vias.getCodigoVia();
+		totalKilometrosVia = vias.getTotalKilometrosVia();
+		tempMedioPercurso = vias.getTempoMedioPercurso();
+	}
 	return *this;
 }
 
+//Coloca Vias por ordem
 bool ViasLigacao::operator < (const ViasLigacao & vias)
 {
-	
+	if (codigo < vias.codigo) return true; else return false;
 }
 
 bool ViasLigacao::operator > (const ViasLigacao & vias)
 {
-
+	if (codigo > vias.codigo) return true; else return false;
 }
 
 bool ViasLigacao::operator == (const ViasLigacao & vias)
 {
-
-}
-
-void ViasLigacao::inserirViaLigacao(ViasLigacao *v)
-{
-	/*Inserir as vias de ligação a partir de um ficheiro de texto com a informação estruturada do seguinte 
-	modo:
-				LocTurist1,LocTurist2,EN1,100,90,asfalto
-				LocTurist3,LocTurist7,EN2,55,35,paralelo
-				LocTurist2,LocTurist5,EN1,200,150,asfalto
-				…
-				LocTurist5,LocTurist2,A3,54,30,3.25
-				LocTurist4,LocTurist1,A1,120,60,13.25
-				LocTurist9,LocTurist6,A4,80,90,7.05
-				…
-				LocTurist1,LocTurist7,A2,65,40,4.15*/
-
-	if (actual == tamanho)//axo que nao ta bem pro que se pede.comfirmar......
-	{
-		tamanho = 2* tamanho;
-		ViasLigacao * * vec_tmp = new ViasLigacao * [tamanho];
-		for (int i=0; i<actual; i++)
-			vec_tmp[i] = vec[i];
-		delete [] vec;
-		vec = vec_tmp;
-	}
-
-	vec[actual] = v->clone();
-	actual++;
-}
-	
-void ViasLigacao::contarVias() const
-{
-	int autoestradas = 0;
-	int estradasnacionais = 0;
-
-	for (int i=0; i<actual; i++)
-	{
-		if (typeid(*vec[i]) == typeid(AutoEstradas)) autoestradas++;
-		if (typeid(*vec[i]) == typeid(EstradasNacionais)) estradasnacionais++;
-	}
-	cout << "Total de Vias de Ligacao" << endl;
-	cout << "::::::::::Auto-Estradas: " << autoestradas << " vias." << endl;
-	cout << "::::::::::Estradas-Nacionais: " << estradasnacionais << " vias." << endl;
+	if (codigo == vias.codigo) return true; else return false; 
 }
 
 
 
-void ViasLigacao::escreve(ostream & out)
+void ViasLigacao::escrever(ostream & out) const //Escreve Codigo da via, Quilometros e tempo medio
 {  
-	for (int i=0; i<actual; i++)
-	{ 
-		if (typeid(*vec[i]) == typeid(AutoEstradas)) dynamic_cast <AutoEstradas *>(vec[i])->escreve(out); 
-		if (typeid(*vec[i]) == typeid(EstradasNacionais)) dynamic_cast <EstradasNacionais *>(vec[i])->escreve(out); 
-	} 
+	Locais::escrever2(cout);
+	cout << "CODIGO DA VIA: " << codigo << endl;
+	cout << "TOTAL DE QUILOMETROS: " << totalKilometrosVia << " km" << endl;
+	cout << "TEMPO MEDIO: " << tempMedioPercurso << " minutos" << endl;
 }
+
+
 
 
 #endif

@@ -76,7 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Teste.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoEstradas.h" />

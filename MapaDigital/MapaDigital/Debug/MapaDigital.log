@@ -1,24 +1,15 @@
-﻿Build started 08/10/2013 12:11:16.
-     1>Project "C:\Users\Miguel\Documents\GitHub\ESINF\MapaDigital\MapaDigital\MapaDigital.vcxproj" on node 2 (Build target(s)).
+﻿Build started 25/10/2013 18:03:38.
+     1>Project "C:\Users\Miguel\Documents\GitHub\miguel-nuno\MapaDigital\MapaDigital\MapaDigital.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
-         Main.cpp
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\locaishistoricosculturais.h(16): error C2504: 'Locais' : base class undefined
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\locaishistoricosculturais.h(49): error C2614: 'LocaisHistoricosCulturais' : illegal member initialization: 'Locais' is not a base or member
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\locaisnaturais.h(16): error C2504: 'Locais' : base class undefined
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\locaisnaturais.h(35): error C2535: 'LocaisNaturais &LocaisNaturais::operator =(const LocaisNaturais &)' : member function already defined or declared
-                 c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\locaisnaturais.h(30) : see declaration of 'LocaisNaturais::operator ='
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\locaisnaturais.h(49): error C2614: 'LocaisNaturais' : illegal member initialization: 'Locais' is not a base or member
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\autoestradas.h(14): error C2504: 'ViasLigacao' : base class undefined
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\autoestradas.h(34): error C2535: 'AutoEstradas &AutoEstradas::operator =(const AutoEstradas &)' : member function already defined or declared
-                 c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\autoestradas.h(29) : see declaration of 'AutoEstradas::operator ='
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\autoestradas.h(44): error C2614: 'AutoEstradas' : illegal member initialization: 'ViasLigacao' is not a base or member
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\estradasnacionais.h(14): error C2504: 'ViasLigacao' : base class undefined
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\estradasnacionais.h(36): error C2535: 'EstradasNacionais &EstradasNacionais::operator =(const EstradasNacionais &)' : member function already defined or declared
-                 c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\estradasnacionais.h(31) : see declaration of 'EstradasNacionais::operator ='
-     1>c:\users\miguel\documents\github\esinf\mapadigital\mapadigital\estradasnacionais.h(47): error C2614: 'EstradasNacionais' : illegal member initialization: 'ViasLigacao' is not a base or member
-     1>Done Building Project "C:\Users\Miguel\Documents\GitHub\ESINF\MapaDigital\MapaDigital\MapaDigital.vcxproj" (Build target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Teste.cpp
+         Teste.cpp
+     1>c:\users\miguel\documents\github\miguel-nuno\mapadigital\mapadigital\ficheiro.h(272): warning C4715: 'Ficheiro::verificarOrigem' : not all control paths return a value
+     1>c:\users\miguel\documents\github\miguel-nuno\mapadigital\mapadigital\ficheiro.h(279): warning C4715: 'Ficheiro::verificarDestino' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Miguel\Documents\GitHub\miguel-nuno\MapaDigital\Debug\MapaDigital.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Miguel\Documents\GitHub\miguel-nuno\MapaDigital\Debug\MapaDigital.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Miguel\Documents\GitHub\miguel-nuno\MapaDigital\Debug\MapaDigital.lib" /MACHINE:X86 Debug\Teste.obj
+         MapaDigital.vcxproj -> C:\Users\Miguel\Documents\GitHub\miguel-nuno\MapaDigital\Debug\MapaDigital.exe
+     1>Done Building Project "C:\Users\Miguel\Documents\GitHub\miguel-nuno\MapaDigital\MapaDigital\MapaDigital.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.66
+Time Elapsed 00:00:03.83

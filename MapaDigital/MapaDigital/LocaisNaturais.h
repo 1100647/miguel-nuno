@@ -7,33 +7,30 @@
 #include <string>
 #include <string.h>
 
-
-using namespace std;
-
+#include "Locais.h"
 
 
 class LocaisNaturais : public Locais
 {
 	private:
-		double area;//em km2
+		int area;//em km2
 	public:
 		LocaisNaturais();
 		LocaisNaturais(const LocaisNaturais &locNat);
-		LocaisNaturais(string desc,double a);
+		LocaisNaturais(string desc,int a);
 		~LocaisNaturais();
+		LocaisNaturais * clone() const;
 
 		//SET's e GET's
-		void setArea(double a);
+		void setArea(int a);
 		double getArea() const;
 
-		//Sobrecarga de operadores
+		//Sobrecarga de Operadores
 		LocaisNaturais & operator =(const LocaisNaturais &locNat);
 		bool operator >(const LocaisNaturais &locNat);
 		bool operator <(const LocaisNaturais &locNat);
 		bool operator ==(const LocaisNaturais &locNat);
 		void escrever(ostream &out) const;
-		LocaisNaturais &operator = (const LocaisNaturais &locNat);
-
 
 
 };
@@ -45,7 +42,7 @@ LocaisNaturais::LocaisNaturais()
 }
 
 
-LocaisNaturais::LocaisNaturais(string desc,double a) : Locais(desc)//desc=descrição - variavel da superclasse Locais
+LocaisNaturais::LocaisNaturais(string desc,int a) : Locais(desc)
 {
 	area = a;
 }
@@ -53,12 +50,19 @@ LocaisNaturais::LocaisNaturais(string desc,double a) : Locais(desc)//desc=descri
 LocaisNaturais::~LocaisNaturais(){}
 
 
-LocaisNaturais::LocaisNaturais(const LocaisNaturais &locNat)
+LocaisNaturais::LocaisNaturais(const LocaisNaturais &locNat) : Locais(locNat)
 {
 	setArea(locNat.area);
 }
 
-void LocaisNaturais::setArea(double a)
+
+LocaisNaturais * LocaisNaturais::clone() const{
+	return new LocaisNaturais(*this);
+}
+
+
+
+void LocaisNaturais::setArea(int a)
 {
 	area = a;
 }
@@ -67,6 +71,14 @@ double LocaisNaturais::getArea()const
 {
 	return area;
 }
+
+void LocaisNaturais::escrever(ostream & out) const //Escreve tipo de local e area
+{  
+	cout << "TIPO DE LOCAL: " << "Natural" << endl;
+	Locais::escrever(cout);
+	cout << "AREA: " << area << " km2 " << endl << endl;
+}
+
 
 
 
