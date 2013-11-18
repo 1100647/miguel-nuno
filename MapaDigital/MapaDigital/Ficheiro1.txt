@@ -1,11 +1,5 @@
 Caves Vinho do Porto,20,540,870
-<<<<<<< HEAD
 Museu da Cera,120,640,1110 
 Torre dos Clerigos,2300
 Casa da Musica,120,600,1110
-=======
-Museu da Cera,120,570,1110 
-Torre dos Clerigos,2300
-Casa da Musica,120,600,999
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 Serralves,9000

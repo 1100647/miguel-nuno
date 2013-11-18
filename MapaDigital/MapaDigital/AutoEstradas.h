@@ -7,11 +7,13 @@
 #include <string>
 #include <string.h>
 
+
+
 #include "ViasLigacao.h"
 
-class AutoEstradas : public ViasLigacao //classe AutoEstradas
+class AutoEstradas : public ViasLigacao
 {
-	private:                    
+	private:
 		double precoPortagem;
 	public:
 		AutoEstradas();
@@ -26,59 +28,52 @@ class AutoEstradas : public ViasLigacao //classe AutoEstradas
 	
 		
 		//Sobrecarga de operadores
-		AutoEstradas & operator =(const AutoEstradas &ae);
-		bool operator >(const AutoEstradas &ae);
-		bool operator <(const AutoEstradas &ae);
-		bool operator ==(const AutoEstradas &ae);
 		void escrever(ostream &out) const;
 		
 
 };
-<<<<<<< HEAD
 
 
-AutoEstradas::AutoEstradas() //AutoEstrada sem portagem
+AutoEstradas::AutoEstradas()
 {
 	precoPortagem = 0;
 }
 
-AutoEstradas::AutoEstradas(string orig,string dest,string cod,int totalVia,int tempMedio,double preco) : ViasLigacao(orig,dest,cod,totalVia,tempMedio) //Construtor AutoEstradas
+AutoEstradas::AutoEstradas(string orig,string dest,string cod,int totalVia,int tempMedio,double preco) : ViasLigacao(orig,dest,cod,totalVia,tempMedio)
 {
 	precoPortagem = preco;
 }
 
-AutoEstradas::~AutoEstradas(){} //destrutor
+AutoEstradas::~AutoEstradas(){}
 
 
-AutoEstradas * AutoEstradas::clone() const{  //função clone de AutoEstradas
+AutoEstradas * AutoEstradas::clone() const{
 	return new AutoEstradas(*this);
 }
 
 
-AutoEstradas::AutoEstradas(const AutoEstradas &ae) : ViasLigacao(ae)  //Construtor
+AutoEstradas::AutoEstradas(const AutoEstradas &ae) : ViasLigacao(ae)
 {
 	setPrecoPortagem(ae.precoPortagem);
 }
 
-void AutoEstradas::setPrecoPortagem(double preco) //Método set
+void AutoEstradas::setPrecoPortagem(double preco)
 {
 	precoPortagem = preco;
 }
 
-double AutoEstradas::getPrecoPortagem() const  //Método get
+double AutoEstradas::getPrecoPortagem() const
 {
 	return precoPortagem;
 }
 
-void AutoEstradas::escrever(ostream &out)const  //Escrevetipo de via e Preço portagem
+void AutoEstradas::escrever(ostream &out)const
 {
 	cout << "TIPO DE VIA: " << "Auto Estrada" << endl;
 	ViasLigacao::escrever(cout);
-	cout << "PRECO DA PORTAGEM: " << "EUR "<< precoPortagem << endl << endl;
+	cout << "PRECO DA PORTAGEM: " << "$" << precoPortagem << endl << endl;
 }
 
 
 
-=======
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

@@ -39,9 +39,8 @@ class ViasLigacao : public Locais
 		ViasLigacao & operator =(const ViasLigacao &vias);
 		bool operator >(const ViasLigacao &vias);
 		bool operator <(const ViasLigacao &vias);
-		bool operator ==(const ViasLigacao &vias);
+		bool operator == (const ViasLigacao &vias) const;
 };
-<<<<<<< HEAD
 
 ViasLigacao::ViasLigacao()
 {
@@ -50,7 +49,7 @@ ViasLigacao::ViasLigacao()
 		tempMedioPercurso = 0;
 }
 
-ViasLigacao::ViasLigacao(string orig,string dest,string cod,int totalVia,int tempMedio) : Locais(orig,dest) //herança
+ViasLigacao::ViasLigacao(string orig,string dest,string cod,int totalVia,int tempMedio) : Locais(orig,dest)
 {
 	codigo = cod;
 	totalKilometrosVia = totalVia;
@@ -118,7 +117,7 @@ int ViasLigacao::getTempoMedioPercurso() const
 
 
 
-ViasLigacao & ViasLigacao::operator=(const ViasLigacao &vias) 
+ViasLigacao & ViasLigacao::operator=(const ViasLigacao &vias)
 {
 	if(this != &vias){
 		codigo = vias.getCodigoVia();
@@ -128,7 +127,6 @@ ViasLigacao & ViasLigacao::operator=(const ViasLigacao &vias)
 	return *this;
 }
 
-//Coloca Vias por ordem
 bool ViasLigacao::operator < (const ViasLigacao & vias)
 {
 	if (codigo < vias.codigo) return true; else return false;
@@ -139,14 +137,17 @@ bool ViasLigacao::operator > (const ViasLigacao & vias)
 	if (codigo > vias.codigo) return true; else return false;
 }
 
-bool ViasLigacao::operator == (const ViasLigacao & vias)
+bool ViasLigacao::operator == (const ViasLigacao & vias) const
 {
-	if (codigo == vias.codigo) return true; else return false; 
+	if (codigo == vias.codigo && totalKilometrosVia == vias.totalKilometrosVia && tempMedioPercurso == vias.tempMedioPercurso)
+		return true;
+	else
+		return false;
 }
 
 
 
-void ViasLigacao::escrever(ostream & out) const //Escreve Codigo da via, Quilometros e tempo medio
+void ViasLigacao::escrever(ostream & out) const
 {  
 	Locais::escrever2(cout);
 	cout << "CODIGO DA VIA: " << codigo << endl;
@@ -157,6 +158,4 @@ void ViasLigacao::escrever(ostream & out) const //Escreve Codigo da via, Quilome
 
 
 
-=======
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

@@ -10,7 +10,7 @@
 #include "Locais.h"
 
 
-class LocaisHistoricosCulturais : public Locais //Classe LocaisHistoricos
+class LocaisHistoricosCulturais : public Locais
 {
 	private:
 		int tempoVisita;
@@ -32,7 +32,6 @@ class LocaisHistoricosCulturais : public Locais //Classe LocaisHistoricos
 		int getHorarioAbertura()const;
 		int getHorarioEncerramento()const;
 
-<<<<<<< HEAD
 		void mostrarHora(int t,string tipo) const;
 		void escrever(ostream & out) const;	
 };
@@ -53,7 +52,7 @@ LocaisHistoricosCulturais::LocaisHistoricosCulturais(string desc,int tVisita,int
 }
 
 
-LocaisHistoricosCulturais::LocaisHistoricosCulturais(const LocaisHistoricosCulturais &locHist) : Locais(locHist) //Contrutor
+LocaisHistoricosCulturais::LocaisHistoricosCulturais(const LocaisHistoricosCulturais &locHist) : Locais(locHist)
 {
 	setTempoVisita(locHist.tempoVisita);
 	setHorarioAbertura(locHist.horarioAbertura);
@@ -101,7 +100,7 @@ int LocaisHistoricosCulturais::getHorarioEncerramento()const
 }
 
 
-void LocaisHistoricosCulturais::mostrarHora(int t,string tipo)const   //Mostra Hora no formato correto
+void LocaisHistoricosCulturais::mostrarHora(int t,string tipo)const
 {
 	int horas = t / 60;
 	int minutos = t % 60;
@@ -131,7 +130,7 @@ void LocaisHistoricosCulturais::mostrarHora(int t,string tipo)const   //Mostra H
 }
 
 
-void LocaisHistoricosCulturais::escrever(ostream & out) const //Escreve Tipo, tempo de visita e horario de funcionamento
+void LocaisHistoricosCulturais::escrever(ostream & out) const
 {  
 	cout << "TIPO DE LOCAL: " << "Historico Cultural" << endl;
 	Locais::escrever(cout);
@@ -141,8 +140,4 @@ void LocaisHistoricosCulturais::escrever(ostream & out) const //Escreve Tipo, te
 }
 
 
-=======
-		void escrever(ostream & out) const;	
-};
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

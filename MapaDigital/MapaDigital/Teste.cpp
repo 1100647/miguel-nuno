@@ -18,26 +18,20 @@
 
 int main()
 {
-	cout << "_____________________________________________________" << endl;
-	cout << "...............M A P A   D I G I T A L..............." << endl;
-<<<<<<< HEAD
-	cout << "_____________________________________________________" << endl; //Titulo
-=======
-	cout << "_____________________________________________________" << endl;
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
+	system("COLOR 0A");
+	cout << "|========================================================================|" << endl;
+	cout << "|                         M A P A   D I G I T A L                        |" << endl;
+	cout << "|========================================================================|" << endl;
 
 
 	char sel;
-	Ficheiro f1(100);
-	Ficheiro f2(100);
+	Ficheiro f(50);
 	
-<<<<<<< HEAD
-	//Lê ficheiros
-=======
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
-	f1.lerFicheiroLocais();
-	f2.lerFicheiroVias();
-	
+	f.lerFicheiroLocais();
+	f.ordenar();
+	f.lerFicheiroVias();
+
+
 	cout << "Selecione uma opcao" << endl;
     cout << "1. Listagem dos locais" << endl;
     cout << "2. Listagem da vias de ligacao" << endl;
@@ -47,25 +41,20 @@ int main()
 	cin >> sel;
 	cout << endl; 
 
-<<<<<<< HEAD
-    switch(sel)  //Menu
-=======
     switch(sel)
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 	{
         case '1':
-			f1.escreverLocais(cout);
+			f.escreverLocais(cout);
 			main();
 			break;
  
         case '2':
-			f2.escreverVias(cout);
+			f.escreverVias(cout);
 			main();
 			break;
                 
 		case '3':
-			f1.ordenar();
-			f1.contarTiposLocal();
+			f.contarTiposLocal();
 			main();
 			break;
 

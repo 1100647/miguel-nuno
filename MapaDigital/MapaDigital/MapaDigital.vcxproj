@@ -76,27 +76,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClCompile Include="Teste.cpp" />
-=======
-    <ClCompile Include="AutoEstradas.cpp" />
-    <ClCompile Include="EstradasNacionais.cpp" />
-    <ClCompile Include="Ficheiro.cpp" />
-    <ClCompile Include="Locais.cpp" />
-    <ClCompile Include="LocaisHistoricosCulturais.cpp" />
-    <ClCompile Include="LocaisNaturais.cpp" />
-    <ClCompile Include="Teste.cpp" />
-    <ClCompile Include="ViasLigacao.cpp" />
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoEstradas.h" />
     <ClInclude Include="EstradasNacionais.h" />
     <ClInclude Include="Ficheiro.h" />
+    <ClInclude Include="graphEdge.h" />
+    <ClInclude Include="graphStl.h" />
+    <ClInclude Include="graphStlPath.h" />
+    <ClInclude Include="graphVertex.h" />
     <ClInclude Include="Locais.h" />
     <ClInclude Include="LocaisHistoricosCulturais.h" />
     <ClInclude Include="LocaisNaturais.h" />
     <ClInclude Include="ViasLigacao.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Ficheiro1.txt" />
+    <Text Include="Ficheiro2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

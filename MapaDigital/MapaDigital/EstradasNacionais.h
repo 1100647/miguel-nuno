@@ -24,24 +24,18 @@ class EstradasNacionais : public ViasLigacao
 		void setTipoPavimento(string tipoPav);
 		string getTipoPavimento()const;
 	
-		//Sobrecarga de operadores
-		EstradasNacionais & operator =(const EstradasNacionais &en);
-		bool operator >(const EstradasNacionais &en);
-		bool operator <(const EstradasNacionais &en);
-		bool operator ==(const EstradasNacionais &en);
 		void escrever(ostream &out)const;
 		
 
 };
-<<<<<<< HEAD
 
 
-EstradasNacionais::EstradasNacionais() //Construtor vazio
+EstradasNacionais::EstradasNacionais()
 {
 	tipoPavimento = "vazio";
 }
 
-EstradasNacionais::EstradasNacionais(string orig,string dest,string cod,int totalVia,int tempMedio,string tipoPav) : ViasLigacao(orig,dest,cod,totalVia,tempMedio) //Construtor Estradas Nacionais
+EstradasNacionais::EstradasNacionais(string orig,string dest,string cod,int totalVia,int tempMedio,string tipoPav) : ViasLigacao(orig,dest,cod,totalVia,tempMedio)
 {
 	tipoPavimento = tipoPav;
 }
@@ -65,12 +59,12 @@ void EstradasNacionais::setTipoPavimento(string tipoPav)
 	tipoPavimento = tipoPav;
 }
 
-string EstradasNacionais::getTipoPavimento() const 
+string EstradasNacionais::getTipoPavimento() const
 {
 	return tipoPavimento;
 }
 
-void EstradasNacionais::escrever(ostream &out)const  //escreve Tipo de via e Tipo de Pavimento
+void EstradasNacionais::escrever(ostream &out)const
 {
 	cout << "TIPO DE VIA: " << "Estrada Nacional" << endl;
 	ViasLigacao::escrever(cout);
@@ -79,6 +73,4 @@ void EstradasNacionais::escrever(ostream &out)const  //escreve Tipo de via e Tip
 
 
 
-=======
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif

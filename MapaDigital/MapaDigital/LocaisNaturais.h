@@ -25,16 +25,10 @@ class LocaisNaturais : public Locais
 		void setArea(int a);
 		double getArea() const;
 
-		//Sobrecarga de Operadores
-		LocaisNaturais & operator =(const LocaisNaturais &locNat);
-		bool operator >(const LocaisNaturais &locNat);
-		bool operator <(const LocaisNaturais &locNat);
-		bool operator ==(const LocaisNaturais &locNat);
 		void escrever(ostream &out) const;
 
 
 };
-<<<<<<< HEAD
 
 
 LocaisNaturais::LocaisNaturais()
@@ -73,7 +67,7 @@ double LocaisNaturais::getArea()const
 	return area;
 }
 
-void LocaisNaturais::escrever(ostream & out) const //Escreve tipo de local e area
+void LocaisNaturais::escrever(ostream & out) const
 {  
 	cout << "TIPO DE LOCAL: " << "Natural" << endl;
 	Locais::escrever(cout);
@@ -85,6 +79,4 @@ void LocaisNaturais::escrever(ostream & out) const //Escreve tipo de local e are
 
 
 
-=======
->>>>>>> bdd737cbe3632410015b630d720936effbea5e7e
 #endif
